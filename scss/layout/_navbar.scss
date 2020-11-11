@@ -1,0 +1,50 @@
+.navbar {
+  background: none;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transition: 0.5s all;
+  &__logo {
+    max-width: 7rem;
+    transition: 0.5s all;
+  }
+  &__list {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+  &__link {
+    color: $white-color;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 0.5rem 0;
+    font-weight: 700;
+    text-transform: capitalize;
+    &:hover {
+      color: $gray-1-color;
+    }
+  }
+
+  &.sticky {
+    background: $black-color;
+  }
+  &.sticky &__logo {
+    max-width: 5rem;
+  }
+  &.sticky &__item.active &__link {
+    color: $primary-color;
+  }
+  &.sticky &__link:hover {
+    color: $secondary-color;
+  }
+}
