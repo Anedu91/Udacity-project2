@@ -4,26 +4,35 @@ html {
   color: $gray-1-color;
 }
 .heading-1 {
-  font-size: 4.5rem;
+  font-size: 2.5rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 8px;
   color: $white-color;
+  @include respond-above(sm) {
+    font-size: 4.5rem;
+  }
 }
 .heading-2 {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 5rem;
+  @include respond-above(sm) {
+    font-size: 3rem;
+  }
 }
 .paragraph {
   font-size: 1.2rem;
   line-height: 2;
 }
 .paragraph-hero {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   letter-spacing: 7px;
   color: $white-color;
   margin-top: 1rem;
+  @include respond-above(sm) {
+    font-size: 2.5rem;
+  }
 }
 .btn {
   text-decoration: none;
@@ -34,6 +43,22 @@ html {
   background: rgba($white-color, 0.75);
   margin-top: 2rem;
   border-radius: 10px;
-  &:hover {
+}
+
+.top {
+  position: fixed;
+  display: none;
+  bottom: 5%;
+  right: 2vw;
+  background: $black-color;
+  border-radius: 50%;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  svg {
+    fill: $white-color;
+  }
+  &.active {
+    display: flex;
   }
 }

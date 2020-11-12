@@ -18,10 +18,16 @@
   }
 
   &__about {
-    padding: 10rem 0;
+    padding: 5rem 2rem;
+    @include respond-above(sm) {
+      padding: 10rem 4rem;
+    }
+    @include respond-above(lg) {
+      padding: 10rem 0;
+    }
   }
   &__features {
-    padding: 10rem 0;
+    padding: 5rem 2rem;
     background-image: linear-gradient(
         to right bottom,
         rgba($primary-color, 0.8),
@@ -30,27 +36,44 @@
       url(../images/hero_bg.jpg);
     background-size: cover;
     transform: skewY(-7deg);
-    margin-top: -10rem;
 
     & > * {
       transform: skewY(7deg);
     }
+    @include respond-above(sm) {
+      padding: 10rem 4rem;
+      margin-top: -10rem;
+    }
+    @include respond-above(lg) {
+      padding: 10rem 0;
+    }
   }
   &__contact {
-    padding: 10rem 0;
+    padding: 5rem 2rem;
+    @include respond-above(sm) {
+      padding: 10rem 4rem;
+    }
+    @include respond-above(lg) {
+      padding: 10rem 0;
+    }
   }
 }
 
 .container {
-  max-width: 1200px;
   width: 100%;
   margin: auto;
+  @include respond-above(lg) {
+    max-width: 1200px;
+  }
 
   &--grid {
     align-items: center;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     grid-gap: 2rem;
+    @include respond-above(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
   &--contact {
     background-image: url(../images/contact.jpg);
@@ -72,8 +95,11 @@
 
 .packages {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   grid-gap: 3rem;
+  @include respond-above(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
   &__item {
     padding: 2rem;
     display: flex;
@@ -116,14 +142,23 @@
 .form {
   display: flex;
   flex-direction: column;
-  max-width: 50%;
+
   background: rgba($white-color, 0.7);
   position: relative;
-  padding: 5rem;
+  padding: 2rem;
+  @include respond-above(sm) {
+    padding: 5rem;
+  }
+  @include respond-above(md) {
+    max-width: 50%;
+  }
   &__group {
     display: flex;
     flex-direction: column;
-    max-width: 80%;
+
+    @include respond-above(sm) {
+      max-width: 80%;
+    }
     &:not(:last-child) {
       margin-bottom: 3rem;
     }

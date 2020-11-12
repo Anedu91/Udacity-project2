@@ -2,15 +2,15 @@
 const $navbar = document.querySelector(".navbar");
 const $sections = document.querySelectorAll(".section");
 const $navbarList = document.querySelector("#navbar-ul");
+const $topButton = document.querySelector(".top");
 const fragment = document.createDocumentFragment();
 const links = [];
-const marginTop = 100;
+const marginTop = 150;
 let currentActive = 0;
 /*Helper functions */
 /* */
 /*Main functions */
 
-//CREATE NAVBAR
 const createNavbar = (sections) => {
   sections.forEach((item) => {
     const sectionName = item.dataset.nav;
@@ -23,32 +23,38 @@ const createNavbar = (sections) => {
   });
   $navbarList.appendChild(fragment);
 };
-
-// REMOVING ACTIVE FUNCTION
 const removeActive = () =>
   [...links].map((link) => {
     link.classList.remove("active");
   });
-
-// ADDING ACTIVE FUNCTION
 const addActive = (current) => [...links][current].classList.add("active");
 
 /*Begin Events */
+
 createNavbar($sections);
 addActive(currentActive);
 
 document.onscroll = function () {
+  /*Sticky Navbar */
   if (window.scrollY >= 10) {
     $navbar.classList.add("sticky");
   } else {
     $navbar.classList.remove("sticky");
   }
+
+  /*To top Bottom */
+  if (window.scrollY >= 500) {
+    $topButton.classList.add("active");
+  } else {
+    $topButton.classList.remove("active");
+  }
+
+  /*Current section active */
   const current = [...$sections].findIndex(
     (section) =>
-      section.offsetTop - window.scrollY <= 0 &&
-      section.getBoundingClientRect().bottom >= 0
+      section.offsetTop - window.scrollY - marginTop <= 0 &&
+      section.getBoundingClientRect().bottom - marginTop >= 0
   );
-
   if (current !== currentActive) {
     removeActive();
     if (current == -1) {
